@@ -34,27 +34,27 @@ export default {
       {
         src: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
         type: "text/javascript",
-        async,
-        defer
+        async : true,
+        defer: true
       },
       {
         src: "https://js.pusher.com/7.0/pusher.min.js",
         type: "text/javascript",
         ssr: false,
-        async,
-        defer
+        async : true,
+        defer: true
       },
       {
         src: "https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js",
         type: "text/javascript",
-        async,
-        defer
+        async : true,
+        defer: true
       },
       {
         src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js",
         type: "text/javascript",
-        async,
-        defer
+        async : true,
+        defer: true
       },
       // {
       //   src: "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css",
@@ -63,8 +63,8 @@ export default {
       {
         src: "https://cdn.ckeditor.com/ckeditor5/30.0.0/balloon/ckeditor.js",
         type: "text/javascript",
-        async,
-        defer
+        async : true,
+        defer: true
       },
 
       '~/assets/js/collapse.js',
