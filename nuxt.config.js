@@ -232,12 +232,12 @@ export default {
     },
     {
       UserAgent: '*',
-      Sitemap: 'https://odaaay.com/sitemap.xml',
+      Sitemap: 'https://main--lambent-duckanoo-63ccf2.netlify.app/sitemap.xml',
     },
   ],
 
   sitemap: {
-    hostname: 'https://www.odaaay.com',
+    hostname: 'https://main--lambent-duckanoo-63ccf2.netlify.app',
     i18n: {
       locales: ['en', 'pt', 'fr', 'ha', 'es'],
       routesNameSeparator: '___',

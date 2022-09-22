@@ -337,7 +337,7 @@ export default {
       this.LoginStepTwo()
     },
     googleRedirection(){
-      this.$router.push('https://62fd38baee8fd0053f999b7d--luminous-boba-dd9d14.netlify.app/google')
+      this.$router.push('https://main--lambent-duckanoo-63ccf2.netlify.app/google')
     },
     LoginStepOne() {
       this.show = false
