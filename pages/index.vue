@@ -164,6 +164,7 @@ export default {
   },
 
   created(){
+    console.log("Dans le home Page")
     if(this.$route.query.categorie){
       this.getAllDataPaid(this.$route.query.categorie)
     } else {
