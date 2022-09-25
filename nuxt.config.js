@@ -12,6 +12,8 @@ export default {
     fallback: true
   },
 
+  debug: true,
+
   head: {
     title: 'Odaaay',
     htmlAttrs: {

@@ -262,7 +262,6 @@ export default {
             });
             this.$store.commit('PUT_USER_UUID', response.data.uuid)
             this.$router.push('/' + this.$i18n.locale + '/')
-            console.log("ICI après le PUSH")
           }
 
           if (response.data.status === 3) {
