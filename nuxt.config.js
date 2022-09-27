@@ -4,15 +4,13 @@ export default {
   ssr: true,
   target: 'static',
 
-  router: {
-    middleware: 'colorMode'
-  },
-
-  generate: {
-    fallback: true
-  },
-
-  debug: true,
+  // router: {
+  //   middleware: 'colorMode'
+  // },
+  //
+  // generate: {
+  //   fallback: true
+  // },
 
   head: {
     title: 'Odaaay',
@@ -234,12 +232,12 @@ export default {
     },
     {
       UserAgent: '*',
-      Sitemap: 'https://main--lambent-duckanoo-63ccf2.netlify.app/sitemap.xml',
+      Sitemap: 'https://odaaay.com/sitemap.xml',
     },
   ],
 
   sitemap: {
-    hostname: 'https://main--lambent-duckanoo-63ccf2.netlify.app',
+    hostname: 'https://www.odaaay.com',
     i18n: {
       locales: ['en', 'pt', 'fr', 'ha', 'es'],
       routesNameSeparator: '___',
