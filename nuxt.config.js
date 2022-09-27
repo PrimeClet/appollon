@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   loading: '~/components/splash.vue',
-  ssr: false,
+  ssr: true,
   target: 'static',
 
   router: {
