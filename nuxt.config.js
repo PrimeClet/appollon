@@ -2,15 +2,11 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   loading: '~/components/splash.vue',
   ssr: true,
-  target: 'static',
+  // target: 'static',
 
-  // router: {
-  //   middleware: 'colorMode'
-  // },
-  //
-  // generate: {
-  //   fallback: true
-  // },
+  generate: {
+    fallback: true
+  },
 
   head: {
     title: 'Odaaay',
