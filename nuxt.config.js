@@ -4,9 +4,13 @@ export default {
   ssr: true,
   target: 'static',
 
-  generate: {
-    fallback: true
-  },
+  // router: {
+  //   middleware: 'colorMode'
+  // },
+  //
+  // generate: {
+  //   fallback: true
+  // },
 
   head: {
     title: 'Odaaay',

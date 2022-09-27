@@ -673,7 +673,7 @@
         </div>
       </nav>
     </div>
-    <!--    <nuxt/>-->
+<!--    <nuxt/>-->
   </div>
 </template>
 
@@ -691,7 +691,7 @@ export default {
     truncate,
     VClamp
   },
-  middleware: 'routeCheck',
+  // middleware: 'routeCheck',
   data() {
     return {
       city: '',
