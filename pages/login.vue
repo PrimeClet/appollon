@@ -33,7 +33,7 @@
             </div>
 <!--            <button class="btn btn-light btn-block" data-bs-toggle="modal" data-bs-target="#pasDispo">{{ $t('pages.login.next') }}</button>-->
             <button class="btn btn-light btn-block" @click="onSubmit">{{ $t('pages.login.next') }}</button>
-            <a href="https://odaaay.com/google" class="mt-3 mb-2">
+            <a href="https://62fd38baee8fd0053f999b7d--luminous-boba-dd9d14.netlify.app/google" class="mt-3 mb-2">
               <button class="btn btn-light btn-block">
                 <i class="fab fa-google"></i>
                 {{ $t('pages.home.googleSign') }}
@@ -153,13 +153,13 @@ import Lottie from 'vue-lottie/src/lottie.vue'
 
 
 export default {
-  asyncData({req, store}) {
-    // if (process.server) {
-    //   const ip = req.headers['x-forwarded-for']
-    //   store.commit('PUT_USERIP', ip)
-    //   return { ipadd: ip }
-    // }
-  },
+  // asyncData({req, store}) {
+  //   if (process.server) {
+  //     const ip = req.headers['x-forwarded-for']
+  //     store.commit('PUT_USERIP', ip)
+  //     return { ipadd: ip }
+  //   }
+  // },
   components: {
     lottie: Lottie,
     VueTelInput
@@ -337,7 +337,7 @@ export default {
       this.LoginStepTwo()
     },
     googleRedirection(){
-      this.$router.push('https://odaaay.com/google')
+      this.$router.push('https://main--lambent-duckanoo-63ccf2.netlify.app/google')
     },
     LoginStepOne() {
       this.show = false

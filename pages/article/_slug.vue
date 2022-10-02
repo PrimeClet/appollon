@@ -27,11 +27,11 @@ import {mapGetters, mapState} from "vuex";
 export default {
   // loading: false,
   async asyncData({$axios, i18n, req, store, params}) {
-    if (process.server) {
-      const ip = req.headers['x-forwarded-for']
-      store.commit('PUT_USERIP', ip)
-      return { ipadd: ip }
-    }
+    // if (process.server) {
+    //   const ip = req.headers['x-forwarded-for']
+    //   store.commit('PUT_USERIP', ip)
+    //   return { ipadd: ip }
+    // }
 
 
     //   const [dataDiscover, discoverTrending] = await Promise.all([

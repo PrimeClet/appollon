@@ -19,13 +19,13 @@ import articalPreview from "../components/articalPreview"
 import {mapGetters, mapState} from "vuex"
 
 export default {
-  asyncData({req, store}) {
-    // if (process.server) {
-    //   const ip = req.headers['x-forwarded-for']
-    //   store.commit('PUT_USERIP', ip)
-    //   return { ipadd: ip }
-    // }
-  },
+  // asyncData({req, store}) {
+  //   if (process.server) {
+  //     const ip = req.headers['x-forwarded-for']
+  //     store.commit('PUT_USERIP', ip)
+  //     return { ipadd: ip }
+  //   }
+  // },
   async fetch() {
     await this.getDiscover()
     await this.getUserSettings()

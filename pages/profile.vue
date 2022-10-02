@@ -6,7 +6,7 @@
         <div class="col-md-8 article-Detail px-lg-4 px-md-3 px-2 mb-5 pb-5 scroller">
           <div class="">
             <div class="profile-banner-img w-100 position-relative">
-              <img :src="`https://odaaay.com/api/static/files/${user_data.background}`" alt="" class="w-100 bg-display" v-if="user_data.background" style="object-fit: cover;"/>
+              <img :src="checkUrl(user_data.background)" alt="" class="w-100 bg-display" v-if="user_data.background" style="object-fit: cover;"/>
               <img src="~/assets/images/banner.png" alt="" class="w-100 h-100" v-else/>
               <p class="profile-name">
                 {{ user_data.username }}
@@ -19,7 +19,7 @@
               </p>
               <div class="profile-img position-absolute">
                 <img
-                  :src="`https://odaaay.com/api/static/files/${user_data.picture}`"
+                  :src="checkUrl(user_data.picture)"
                   alt=""
                   class="w-100 rounded border-0"
                   v-if="user_data.picture"
@@ -104,7 +104,7 @@
             <div class="col-md-8 article-Detail px-lg-5 px-md-3 px-4 mb-5 pb-5 scroller">
               <div class="">
                 <div class="profile-banner-img w-100 position-relative">
-                  <img :src="`https://odaaay.com/api/static/files/${otherUserData.background}`" style="object-fit: cover;" alt="" class="w-100 bg-display" v-if="otherUserData.background"/>
+                  <img :src="checkUrl(otherUserData.background)" style="object-fit: cover;" alt="" class="w-100 bg-display" v-if="otherUserData.background"/>
                   <img src="~/assets/images/banner.png" alt="" class="w-100 h-100" v-else/>
                   <p class="profile-name">
                     {{ otherUserData.username }}
@@ -123,7 +123,7 @@
                   </p>
                   <div class="profile-img position-absolute">
                     <img
-                      :src="`https://odaaay.com/api/static/files/${otherUserData.picture}`"
+                      :src="checkUrl(otherUserData.picture)"
                       alt=""
                       class="w-100 h-100 rounded-circle"
                       v-if="otherUserData.picture"
@@ -181,13 +181,13 @@ import ProfileSetting from "@/components/profileSetting"
 export default {
   middleware: 'authentication',
 
-  asyncData({req, store}) {
-    if (process.server) {
-      const ip = req.headers['x-forwarded-for']
-      store.commit('PUT_USERIP', ip)
-      return { ipadd: ip }
-    }
-  },
+  // asyncData({req, store}) {
+  //   if (process.server) {
+  //     const ip = req.headers['x-forwarded-for']
+  //     store.commit('PUT_USERIP', ip)
+  //     return { ipadd: ip }
+  //   }
+  // },
 
   async fetch() {
     await this.getDiscover()
@@ -237,6 +237,18 @@ export default {
       document.getElementById(cityName).style.display = "block";
       // evt.currentTarget.remove("bg-transparent");
       evt.currentTarget.className = "btn tabLinks border-0 text-primary active btn-light";
+    },
+
+    checkUrl(url) {
+      // JavaScript/TypeScript
+      if (url) {
+        if (url.substring(0, 8) !== 'https://') {
+          url = 'https://odaaay.com/api/static/files/' + url;
+          return url
+        } else {
+          return url
+        }
+      }
     },
 
     getFollowing(){

@@ -250,3 +250,7 @@
   color: var(--color);
 }
 
+.dark-mode .VueCarousel-navigation-button[data-v-453ad8cd] {
+  color: #fff !important;
+  background-color: #091a28 !important;
+}

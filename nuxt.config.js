@@ -4,9 +4,13 @@ export default {
   ssr: true,
   target: 'static',
 
-  router: {
-    middleware: 'colorMode'
-  },
+  // router: {
+  //   middleware: 'colorMode'
+  // },
+  //
+  // generate: {
+  //   fallback: true
+  // },
 
   head: {
     title: 'Odaaay',
@@ -20,29 +24,37 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css' },
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css', media: 'all'},
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', media: 'all', disabled: true },
+      { rel: 'stylesheet', href: 'https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css', media: 'all', disabled: true },
 
     ],
     script: [
 
       {
         src: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
-        type: "text/javascript"
+        type: "text/javascript",
+        async : true,
+        defer: true
       },
       {
         src: "https://js.pusher.com/7.0/pusher.min.js",
         type: "text/javascript",
-        ssr: false
+        ssr: false,
+        async : true,
+        defer: true
       },
       {
         src: "https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js",
-        type: "text/javascript"
+        type: "text/javascript",
+        async : true,
+        defer: true
       },
       {
         src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js",
-        type: "text/javascript"
+        type: "text/javascript",
+        async : true,
+        defer: true
       },
       // {
       //   src: "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css",
@@ -50,7 +62,9 @@ export default {
       // },
       {
         src: "https://cdn.ckeditor.com/ckeditor5/30.0.0/balloon/ckeditor.js",
-        type: "text/javascript"
+        type: "text/javascript",
+        async : true,
+        defer: true
       },
 
       '~/assets/js/collapse.js',

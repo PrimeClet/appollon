@@ -45,6 +45,7 @@
         <li class="mt-lg-auto">
           <div>
             <button
+              name="color-switcher"
               class="initial btn bg-transparent"
               :class="{ oneTwo: color_switch}"
               @click="($colorMode.preference = 'light'); change('1');"
@@ -52,6 +53,7 @@
               <div><i class="fa fa-moon"></i></div>
             </button>
             <button
+              name="color-switcher"
               class="initial btn bg-transparent"
               :class="{ oneTwo: !color_switch}"
               @click="($colorMode.preference = 'dark'); change('2');"
@@ -182,6 +184,7 @@
                 <li class="list-group-item border-0 px-0" :class="{ oneTwo: !$cookies.get('token')}">
                   <div class="dropdown">
                     <button
+                      name="notify-icon"
                       class="btn bg-transparent border-0 position-relative px-0"
                       type="button"
                       id="dropdownMenuButton1"
@@ -308,6 +311,7 @@
                 <li class="list-group-item border-0 px-0" :class="{ oneTwo: !$cookies.get('token')}">
                   <div class="dropdown">
                     <button
+                      name="profile-button"
                       class="
                         btn
                         bg-transparent
@@ -365,14 +369,14 @@
                 </li>
                 <li class="list-group-item border-0" :class="{ oneTwo: $cookies.get('token')}">
                   <a :href="`/${$i18n.locale}/login`">
-                    <button class="btn btn-primary btn-sm">
+                    <button class="btn btn-primary btn-sm" name="login">
                       {{ $t('pages.home.login') }}
                     </button>
                   </a>
                 </li>
                 <li class="list-group-item border-0" :class="{ oneTwo: $cookies.get('token')}">
                   <a :href="`/${$i18n.locale}/signup`">
-                    <button class="btn btn-light btn-sm">
+                    <button class="btn btn-light btn-sm" name="signup">
                       {{ $t('pages.home.signup') }}
                     </button>
                   </a>
@@ -424,6 +428,7 @@
               <li class="list-group-item border-0 px-0" :class="{ oneTwo: !$cookies.get('token')}">
                 <div class="dropdown">
                   <button
+                    name="profile-button"
                     class="
                         btn
                         bg-transparent
@@ -481,14 +486,14 @@
               </li>
               <li class="list-group-item border-0 px-1" :class="{ oneTwo: $cookies.get('token')}">
                 <a :href="`/${$i18n.locale}/login`">
-                  <button class="btn btn-primary btn-sm">
+                  <button class="btn btn-primary btn-sm" name="login">
                     {{ $t('pages.home.login') }}
                   </button>
                 </a>
               </li>
               <li class="list-group-item border-0 px-1" :class="{ oneTwo: $cookies.get('token')}">
                 <a :href="`/${$i18n.locale}/signup`">
-                  <button class="btn btn-light btn-sm">
+                  <button class="btn btn-light btn-sm" name="signup">
                     {{ $t('pages.home.signup') }}
                   </button>
                 </a>
@@ -496,6 +501,7 @@
             </ul>
           </div>
           <button
+            name="burger-menu"
             class="btn bg-transparent border-0 navbar-toggler"
             type="button"
             id="sidebarCollapse2"
@@ -554,7 +560,7 @@
                   style="margin-bottom: 1%"
                 />
               </nuxt-link>
-              <button type="button" class="btn-close text-18 ml-3 mb-0 " aria-label="Close" @click="isHidden = !isHidden"></button>
+              <button name="close-search" type="button" class="btn-close text-18 ml-3 mb-0 " aria-label="Close" @click="isHidden = !isHidden"></button>
             </div>
 
             <div class="mt-3 w-50">
@@ -579,6 +585,7 @@
                   <div id="new-value"></div>
                 </div>
                 <button
+                  name="search"
                   class="btn btn-primary px-md-4 px-3 rounded-4"
                   type="button"
                 >
@@ -666,7 +673,7 @@
         </div>
       </nav>
     </div>
-    <!--    <nuxt/>-->
+<!--    <nuxt/>-->
   </div>
 </template>
 
@@ -684,7 +691,7 @@ export default {
     truncate,
     VClamp
   },
-  middleware: 'routeCheck',
+  // middleware: 'routeCheck',
   data() {
     return {
       city: '',
@@ -778,18 +785,18 @@ export default {
       }
       // const items = this.randomArray.filter(item => item.name.toUpperCase().indexOf(this.searchKeyWord.toUpperCase()) !== -1);
     },
-    getWeatherCity(ip) {
-      this.$axios
-        .post('/user/ip_addressdata', {
-          address: ip
-        })
-        .then((res) => {
-          this.getWeather(res.data.res.city)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
+    // getWeatherCity(ip) {
+    //   this.$axios
+    //     .post('/user/ip_addressdata', {
+    //       address: ip
+    //     })
+    //     .then((res) => {
+    //       this.getWeather(res.data.res.city)
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
+    // },
     changeStatus(id, user, uuid, index) {
       this.$axios
         .post('/post/receive/notification', {
@@ -1106,7 +1113,7 @@ export default {
     //this.pic = localStorage.getItem('profile_picture')
     // }
 
-    this.getWeatherCity(this.$store.state.userIP)
+    // this.getWeatherCity(this.$store.state.userIP)
     this.mediascreen = window.matchMedia("(max-width: 700px)");
   },
   watch: {
