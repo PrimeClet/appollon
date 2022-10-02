@@ -2,7 +2,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   loading: '~/components/splash.vue',
   ssr: true,
-  target: 'server',
+  target: 'static',
 
   router: {
     middleware: 'colorMode'
