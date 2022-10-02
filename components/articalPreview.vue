@@ -361,346 +361,346 @@
         </div>
         <!--        </div>-->
       </div>
-<!--      <div class="row px-0 mt-2 mx-md-0 mx-lg-0 mt-md-4" v-for="(item, $index) in list" :key="item.id" v-if="!emptyBox">-->
-<!--        <div class="p-0" v-for="items in item.posts" :key="items.id">-->
-<!--            <div class="row px-0 mt-1 px-lg-1" v-if="!items.thumb_url">-->
-<!--              <div class="col-md-12 h-100">-->
-<!--                <div class="card-body p-1 position-relative">-->
-<!--                  <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank">-->
-<!--                    <h6 class="card-title pb-1 mb-0 text-base text-18">-->
-<!--                      {{item.title}}-->
-<!--                    </h6>-->
-<!--                  </nuxt-link>-->
-<!--                  <p class="lh-sm text-justify pb-2 mb-0 content-text">-->
-<!--                    <v-clamp autoresize :max-lines="3" style="font-size: 13px;line-height: 20px;">-->
-<!--                      {{item.content}}-->
-<!--                    </v-clamp>-->
-<!--                  </p>-->
-<!--                  <div class="d-flex w-100 align-items-center">-->
-<!--                    <button class="btn btn-light btn-sm py-1 py-md-0" :id="items.uuid" @click="clapper(items.uuid, $event)">-->
-<!--                      <i class="fas fa-thumbs-up me-1" @click="likee(items.uuid)"></i><span @click="likee(items.uuid)">{{ items.clap.length}}</span>-->
-<!--                    </button>-->
+      <div class="row px-0 mt-2 mx-md-0 mx-lg-0 mt-md-4" v-for="(item, $index) in list" :key="item.id" v-if="!emptyBox" :aria-current="$index">
+        <div class="p-0" v-for="items in item.posts" :key="items.id">
+            <div class="row px-0 mt-1 px-lg-1" v-if="!items.thumb_url">
+              <div class="col-md-12 h-100">
+                <div class="card-body p-1 position-relative">
+                  <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank">
+                    <h6 class="card-title pb-1 mb-0 text-base text-18">
+                      {{item.title}}
+                    </h6>
+                  </nuxt-link>
+                  <p class="lh-sm text-justify pb-2 mb-0 content-text">
+                    <v-clamp autoresize :max-lines="3" style="font-size: 13px;line-height: 20px;">
+                      {{item.content}}
+                    </v-clamp>
+                  </p>
+                  <div class="d-flex w-100 align-items-center">
+                    <button class="btn btn-light btn-sm py-1 py-md-0" :id="items.uuid" @click="clapper(items.uuid, $event)">
+                      <i class="fas fa-thumbs-up me-1" @click="likee(items.uuid)"></i><span @click="likee(items.uuid)">{{ items.clap.length}}</span>
+                    </button>
 
-<!--                    <ul-->
-<!--                      class="list-group list-group-horizontal float-end ms-auto mr-2"-->
-<!--                    >-->
-<!--                      <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">-->
-<!--                        &lt;!&ndash;                          <button class="bg-transparent border-0">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            <i class="fas fa-heart"></i>&ndash;&gt;-->
-<!--                        <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />-->
-<!--                        &lt;!&ndash;                            <i slot="icon" class="fas fa-heart addColor1"></i>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                          </button>&ndash;&gt;-->
-<!--                      </li>-->
-<!--                      <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>-->
-<!--                        &lt;!&ndash;                          <button class="bg-transparent border-0">&ndash;&gt;-->
-<!--                        <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />-->
-<!--                        &lt;!&ndash;                          <vue-star animate="animated bounceIn" color="#F05654">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                            <i slot="icon" class="fas fa-heart"></i>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                          </vue-star>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                          </button>&ndash;&gt;-->
-<!--                      </li>-->
-<!--                      <li class="list-group-item border-0">-->
-<!--                        <button class="bg-transparent border-0">-->
+                    <ul
+                      class="list-group list-group-horizontal float-end ms-auto mr-2"
+                    >
+                      <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">
+                        <!--                          <button class="bg-transparent border-0">-->
+                        <!--                            <i class="fas fa-heart"></i>-->
+                        <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />
+                        <!--                            <i slot="icon" class="fas fa-heart addColor1"></i>-->
+                        <!--                          </button>-->
+                      </li>
+                      <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>
+                        <!--                          <button class="bg-transparent border-0">-->
+                        <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />
+                        <!--                          <vue-star animate="animated bounceIn" color="#F05654">-->
+                        <!--                            <i slot="icon" class="fas fa-heart"></i>-->
+                        <!--                          </vue-star>-->
+                        <!--                          </button>-->
+                      </li>
+                      <li class="list-group-item border-0">
+                        <button class="bg-transparent border-0">
 
-<!--                          <b-button :id="`popover-target-${$index}`" class="border-0 bg-transparent m-0 p-0 mb-1">-->
-<!--                            <i class="fas fa-share-alt share-design" style="font-size: small; padding-top: 1px;" ></i>-->
-<!--                          </b-button>-->
+                          <b-button :id="`popover-target-${$index}`" class="border-0 bg-transparent m-0 p-0 mb-1">
+                            <i class="fas fa-share-alt share-design" style="font-size: small; padding-top: 1px;" ></i>
+                          </b-button>
 
-<!--                          <b-popover :target="`popover-target-${$index}`" triggers="hover focus" placement="top">-->
-<!--                            <ShareNetwork-->
-<!--                              network="facebook"-->
-<!--                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                              :title="items.title"-->
-<!--                            >-->
-<!--                              <i class="fab fa-facebook"></i>-->
-<!--                            </ShareNetwork>-->
-<!--                            <ShareNetwork-->
-<!--                              network="email"-->
-<!--                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                              :title="items.title"-->
-<!--                            >-->
-<!--                              <i class="fab fa-google"></i>-->
-<!--                            </ShareNetwork>-->
-<!--                            <ShareNetwork-->
-<!--                              network="twitter"-->
-<!--                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                              :title="items.title"-->
-<!--                            >-->
-<!--                              <i class="fab fa-twitter"></i>-->
-<!--                            </ShareNetwork>-->
-<!--                            <ShareNetwork-->
-<!--                              network="whatsapp"-->
-<!--                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                              :title="items.title"-->
-<!--                            >-->
-<!--                              <i class="fab fa-whatsapp"></i>-->
-<!--                            </ShareNetwork>-->
-<!--                          </b-popover>-->
-<!--                          &lt;!&ndash;                            <i class="fas fa-upload"></i>&ndash;&gt;-->
-<!--                        </button>-->
-<!--                      </li>-->
-<!--                      <li class="list-group-item border-0">-->
-<!--                        <button-->
-<!--                          type="button"-->
-<!--                          class="bg-transparent border-0"-->
-<!--                          data-bs-toggle="modal"-->
-<!--                          data-bs-target="#notInterested"-->
-<!--                        >-->
-<!--                          <i class="fas fa-info-circle"  data-bs-toggle="tooltip" data-bs-placement="top" :title="$t('pages.home.reportPost')"></i>-->
-<!--                        </button>-->
-<!--                      </li>-->
+                          <b-popover :target="`popover-target-${$index}`" triggers="hover focus" placement="top">
+                            <ShareNetwork
+                              network="facebook"
+                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                              :title="items.title"
+                            >
+                              <i class="fab fa-facebook"></i>
+                            </ShareNetwork>
+                            <ShareNetwork
+                              network="email"
+                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                              :title="items.title"
+                            >
+                              <i class="fab fa-google"></i>
+                            </ShareNetwork>
+                            <ShareNetwork
+                              network="twitter"
+                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                              :title="items.title"
+                            >
+                              <i class="fab fa-twitter"></i>
+                            </ShareNetwork>
+                            <ShareNetwork
+                              network="whatsapp"
+                              :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                              :title="items.title"
+                            >
+                              <i class="fab fa-whatsapp"></i>
+                            </ShareNetwork>
+                          </b-popover>
+                          <!--                            <i class="fas fa-upload"></i>-->
+                        </button>
+                      </li>
+                      <li class="list-group-item border-0">
+                        <button
+                          type="button"
+                          class="bg-transparent border-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#notInterested"
+                        >
+                          <i class="fas fa-info-circle"  data-bs-toggle="tooltip" data-bs-placement="top" :title="$t('pages.home.reportPost')"></i>
+                        </button>
+                      </li>
 
-<!--                      <li class="list-group-item border-0">-->
-<!--                        <button class="bg-transparent border-0" v-on:click="notInterested($index, items.uuid)">-->
-<!--                          <i class="fas fa-times" style="font-size: large;padding-top: 5px;"></i>-->
-<!--                        </button>-->
-<!--                      </li>-->
-<!--                    </ul>-->
-<!--                    &lt;!&ndash; Modal &ndash;&gt;-->
-<!--                    <div class="modal fade" id="notInterested" tabindex="-1" aria-labelledby="notInterested" aria-hidden="true">-->
-<!--                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">-->
-<!--                        <div class="modal-content">-->
-<!--                          <div class="modal-header">-->
-<!--                            <h5 class="modal-title" id="exampleModalLabel">{{ $t('pages.home.reportArticle') }}</h5>-->
-<!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="flushValue"></button>-->
-<!--                          </div>-->
-<!--                          <div class="modal-body">-->
-<!--                            <div class="row">-->
-<!--                              <div class="col-6">-->
-<!--                                <div class="form-check mt-3">-->
-<!--                                  <input class="form-check-input" type="checkbox" v-model="FN" value="1" id="Fake" v-on:click="addValue(1)">-->
-<!--                                  <label class="form-check-label font-weight-bold " for="Fake">-->
-<!--                                    {{ $t('pages.home.fn') }}-->
-<!--                                  </label>-->
-<!--                                </div>-->
-<!--                                <div class="form-check mt-3">-->
-<!--                                  <input class="form-check-input" type="checkbox" v-model="BT" value="2" id="Translation" v-on:click="addValue(2)">-->
-<!--                                  <label class="form-check-label font-weight-bold" for="Translation">-->
-<!--                                    {{ $t('pages.home.bt') }}-->
-<!--                                  </label>-->
-<!--                                </div>-->
-<!--                                <div class="form-check mt-3">-->
-<!--                                  <input class="form-check-input" type="checkbox" value="5" v-model="O" v-on:click="addValue(5)" id="Others" @change="otherShow = !otherShow">-->
-<!--                                  <label class="form-check-label font-weight-bold" for="Others">-->
-<!--                                    {{ $t('pages.home.other') }}-->
-<!--                                  </label>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                              <div class="col-6">-->
-<!--                                <div class="form-check mt-3">-->
-<!--                                  <input class="form-check-input" v-model="VL" type="checkbox" value="3" id="Language" v-on:click="addValue(3)">-->
-<!--                                  <label class="form-check-label font-weight-bold" for="Language">-->
-<!--                                    {{ $t('pages.home.vl') }}-->
-<!--                                  </label>-->
-<!--                                </div>-->
-<!--                                <div class="form-check mt-3">-->
-<!--                                  <input class="form-check-input" v-model="Cop" type="checkbox" value="4" id="Copyright" v-on:click="addValue(4)">-->
-<!--                                  <label class="form-check-label font-weight-bold" for="Copyright">-->
-<!--                                    {{ $t('pages.home.copyright') }}-->
-<!--                                  </label>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="form-floating mt-3" v-if="otherShow">-->
-<!--                              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareae" v-model="reason"></textarea>-->
-<!--                              <label for="floatingTextareae">{{ $t('pages.home.tell') }}...</label>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                          <div class="modal-footer">-->
-<!--                            <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="flushValue">{{ $t('pages.home.close') }} <i class="fas fa-times-circle"></i></button>-->
-<!--                            <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="reportPost(items.uuid)">{{ $t('pages.home.send') }} <i class="fas fa-paper-plane"></i></button>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
+                      <li class="list-group-item border-0">
+                        <button class="bg-transparent border-0" v-on:click="notInterested($index, items.uuid)">
+                          <i class="fas fa-times" style="font-size: large;padding-top: 5px;"></i>
+                        </button>
+                      </li>
+                    </ul>
+                    <!-- Modal -->
+                    <div class="modal fade" id="notInterested" tabindex="-1" aria-labelledby="notInterested" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{ $t('pages.home.reportArticle') }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="flushValue"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row">
+                              <div class="col-6">
+                                <div class="form-check mt-3">
+                                  <input class="form-check-input" type="checkbox" v-model="FN" value="1" id="Fake" v-on:click="addValue(1)">
+                                  <label class="form-check-label font-weight-bold " for="Fake">
+                                    {{ $t('pages.home.fn') }}
+                                  </label>
+                                </div>
+                                <div class="form-check mt-3">
+                                  <input class="form-check-input" type="checkbox" v-model="BT" value="2" id="Translation" v-on:click="addValue(2)">
+                                  <label class="form-check-label font-weight-bold" for="Translation">
+                                    {{ $t('pages.home.bt') }}
+                                  </label>
+                                </div>
+                                <div class="form-check mt-3">
+                                  <input class="form-check-input" type="checkbox" value="5" v-model="O" v-on:click="addValue(5)" id="Others" @change="otherShow = !otherShow">
+                                  <label class="form-check-label font-weight-bold" for="Others">
+                                    {{ $t('pages.home.other') }}
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="form-check mt-3">
+                                  <input class="form-check-input" v-model="VL" type="checkbox" value="3" id="Language" v-on:click="addValue(3)">
+                                  <label class="form-check-label font-weight-bold" for="Language">
+                                    {{ $t('pages.home.vl') }}
+                                  </label>
+                                </div>
+                                <div class="form-check mt-3">
+                                  <input class="form-check-input" v-model="Cop" type="checkbox" value="4" id="Copyright" v-on:click="addValue(4)">
+                                  <label class="form-check-label font-weight-bold" for="Copyright">
+                                    {{ $t('pages.home.copyright') }}
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-floating mt-3" v-if="otherShow">
+                              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareae" v-model="reason"></textarea>
+                              <label for="floatingTextareae">{{ $t('pages.home.tell') }}...</label>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="flushValue">{{ $t('pages.home.close') }} <i class="fas fa-times-circle"></i></button>
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="reportPost(items.uuid)">{{ $t('pages.home.send') }} <i class="fas fa-paper-plane"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="card bg-primary px-lg-4" v-else>-->
-<!--              <div class="row px-md-0 mt-4 px-1" >-->
-<!--                <div class="col-md-3 col-lg-2 col-2 px-0 pl-1 pl-md-0">-->
-<!--                  <div class="">-->
-<!--                    <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank">-->
-<!--                      <img-->
-<!--                        :src="checkUrl(items.thumb_url)"-->
-<!--                        alt="..."-->
-<!--                        class="article-thumbnail rounded-3 obj-cover"-->
-<!--                        style="object-fit: cover"-->
-<!--                      />-->
-<!--                    </nuxt-link>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-9 col-lg-10 pl-lg-3 ps-md-0 px-0 pl-1 pl-md-0 text-justify col-10">-->
-<!--                  <div class="px-2 position-relative h-100 d-flex flex-column">-->
-<!--                    <div>-->
-<!--                      <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank" class="pt-1">-->
-<!--                        <h6 class="card-title pb-1 mb-0 text-base text-16">-->
-<!--                          {{item.title}}-->
-<!--                        </h6>-->
-<!--                      </nuxt-link>-->
-<!--                      <p class="lh-sm content-text text-justify mb-2 m-0" >-->
-<!--                        <v-clamp autoresize :max-lines="2">-->
-<!--                          {{item.content}}-->
-<!--                        </v-clamp>-->
-<!--                      </p>-->
-<!--                    </div>-->
+                </div>
+              </div>
+            </div>
+            <div class="card bg-primary px-lg-4" v-else>
+              <div class="row px-md-0 mt-4 px-1" >
+                <div class="col-md-3 col-lg-2 col-2 px-0 pl-1 pl-md-0">
+                  <div class="">
+                    <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank">
+                      <img
+                        :src="checkUrl(items.thumb_url)"
+                        alt="..."
+                        class="article-thumbnail rounded-3 obj-cover"
+                        style="object-fit: cover"
+                      />
+                    </nuxt-link>
+                  </div>
+                </div>
+                <div class="col-md-9 col-lg-10 pl-lg-3 ps-md-0 px-0 pl-1 pl-md-0 text-justify col-10">
+                  <div class="px-2 position-relative h-100 d-flex flex-column">
+                    <div>
+                      <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank" class="pt-1">
+                        <h6 class="card-title pb-1 mb-0 text-base text-16">
+                          {{item.title}}
+                        </h6>
+                      </nuxt-link>
+                      <p class="lh-sm content-text text-justify mb-2 m-0" >
+                        <v-clamp autoresize :max-lines="2">
+                          {{item.content}}
+                        </v-clamp>
+                      </p>
+                    </div>
 
-<!--                    <div class="d-flex w-100 align-items-center">-->
-<!--                      <button class="btn btn-light btn-sm py-1 py-md-0" :id="items.uuid" @click="clapper(items.uuid, $event)">-->
-<!--                        <i class="fas fa-thumbs-up me-1" @click="likee(items.uuid)"></i><span @click="likee(items.uuid)">{{ items.clap.length}}</span>-->
-<!--                      </button>-->
+                    <div class="d-flex w-100 align-items-center">
+                      <button class="btn btn-light btn-sm py-1 py-md-0" :id="items.uuid" @click="clapper(items.uuid, $event)">
+                        <i class="fas fa-thumbs-up me-1" @click="likee(items.uuid)"></i><span @click="likee(items.uuid)">{{ items.clap.length}}</span>
+                      </button>
 
-<!--                      <ul-->
-<!--                        class="list-group list-group-horizontal float-end ms-auto"-->
-<!--                      >-->
-<!--                        <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">-->
-<!--&lt;!&ndash;                          <button class="bg-transparent border-0">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <i class="fas fa-heart"></i>&ndash;&gt;-->
-<!--                          <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />-->
-<!--&lt;!&ndash;                            <i slot="icon" class="fas fa-heart addColor1"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                          </button>&ndash;&gt;-->
-<!--                        </li>-->
-<!--                        <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>-->
-<!--&lt;!&ndash;                          <button class="bg-transparent border-0">&ndash;&gt;-->
-<!--                            <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />-->
-<!--&lt;!&ndash;                          <vue-star animate="animated bounceIn" color="#F05654">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <i slot="icon" class="fas fa-heart"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                          </vue-star>&ndash;&gt;-->
-<!--&lt;!&ndash;                          </button>&ndash;&gt;-->
-<!--                        </li>-->
-<!--                        <li class="list-group-item border-0">-->
+                      <ul
+                        class="list-group list-group-horizontal float-end ms-auto"
+                      >
+                        <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">
 <!--                          <button class="bg-transparent border-0">-->
-
-<!--                            <b-button :id="`popover-target-${$index}`" class="border-0 bg-transparent m-0 p-0 mb-1">-->
-<!--                              <i class="fas fa-share-alt share-design" style="font-size: small; padding-top: 1px;" ></i>-->
-<!--                            </b-button>-->
-
-<!--                            <b-popover :target="`popover-target-${$index}`" triggers="hover focus" placement="top">-->
-<!--                              <ShareNetwork-->
-<!--                                network="facebook"-->
-<!--                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                                :title="items.title"-->
-<!--                              >-->
-<!--                                <i class="fab fa-facebook"></i>-->
-<!--                              </ShareNetwork>-->
-<!--                              <ShareNetwork-->
-<!--                                network="email"-->
-<!--                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                                :title="items.title"-->
-<!--                              >-->
-<!--                                <i class="fab fa-google"></i>-->
-<!--                              </ShareNetwork>-->
-<!--                              <ShareNetwork-->
-<!--                                network="twitter"-->
-<!--                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                                :title="items.title"-->
-<!--                              >-->
-<!--                                <i class="fab fa-twitter"></i>-->
-<!--                              </ShareNetwork>-->
-<!--                              <ShareNetwork-->
-<!--                                network="whatsapp"-->
-<!--                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"-->
-<!--                                :title="items.title"-->
-<!--                              >-->
-<!--                                <i class="fab fa-whatsapp"></i>-->
-<!--                              </ShareNetwork>-->
-<!--                            </b-popover>-->
-<!--&lt;!&ndash;                            <i class="fas fa-upload"></i>&ndash;&gt;-->
+<!--                            <i class="fas fa-heart"></i>-->
+                          <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />
+<!--                            <i slot="icon" class="fas fa-heart addColor1"></i>-->
 <!--                          </button>-->
-<!--                        </li>-->
-<!--                        <li class="list-group-item border-0">-->
-<!--                          <button-->
-<!--                            type="button"-->
-<!--                            class="bg-transparent border-0"-->
-<!--                            data-bs-toggle="modal"-->
-<!--                            data-bs-target="#notInterestedOne"-->
-<!--                          >-->
-<!--                            <i class="fas fa-info-circle"  data-bs-toggle="tooltip" data-bs-placement="top" :title="$t('pages.home.reportPost')"></i>-->
+                        </li>
+                        <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>
+<!--                          <button class="bg-transparent border-0">-->
+                            <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />
+<!--                          <vue-star animate="animated bounceIn" color="#F05654">-->
+<!--                            <i slot="icon" class="fas fa-heart"></i>-->
+<!--                          </vue-star>-->
 <!--                          </button>-->
-<!--                        </li>-->
+                        </li>
+                        <li class="list-group-item border-0">
+                          <button class="bg-transparent border-0">
 
-<!--                        <li class="list-group-item border-0">-->
-<!--                          <button class="bg-transparent border-0" v-on:click="notInterested($index, items.uuid)">-->
-<!--                            <i class="fas fa-times" style="font-size: large;padding-top: 5px;"></i>-->
-<!--                          </button>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                      &lt;!&ndash; Modal &ndash;&gt;-->
-<!--                      <div class="modal fade" id="notInterestedOne" tabindex="-1" aria-labelledby="notInterestedOne" aria-hidden="true">-->
-<!--                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">-->
-<!--                          <div class="modal-content">-->
-<!--                            <div class="modal-header">-->
-<!--                              <h5 class="modal-title" id="exampleModalLabelOne">{{ $t('pages.home.reportArticle') }}</h5>-->
-<!--                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="flushValue"></button>-->
-<!--                            </div>-->
-<!--                            <div class="modal-body">-->
-<!--                              <div class="row">-->
-<!--                                <div class="col-6">-->
-<!--                                  <div class="form-check mt-3">-->
-<!--                                    <input class="form-check-input" type="checkbox" v-model="FN" value="1" id="FakeOne" v-on:click="addValue(1)">-->
-<!--                                    <label class="form-check-label font-weight-bold " for="FakeOne">-->
-<!--                                      {{ $t('pages.home.fn') }}-->
-<!--                                    </label>-->
-<!--                                  </div>-->
-<!--                                  <div class="form-check mt-3">-->
-<!--                                    <input class="form-check-input" type="checkbox" v-model="BT" value="2" id="TranslationOne" v-on:click="addValue(2)">-->
-<!--                                    <label class="form-check-label font-weight-bold" for="TranslationOne">-->
-<!--                                      {{ $t('pages.home.bt') }}-->
-<!--                                    </label>-->
-<!--                                  </div>-->
-<!--                                  <div class="form-check mt-3">-->
-<!--                                    <input class="form-check-input" type="checkbox" value="5" v-model="O" v-on:click="addValue(5)" id="OthersOne" @change="otherShow = !otherShow">-->
-<!--                                    <label class="form-check-label font-weight-bold" for="OthersOne">-->
-<!--                                      {{ $t('pages.home.other') }}-->
-<!--                                    </label>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-6">-->
-<!--                                  <div class="form-check mt-3">-->
-<!--                                    <input class="form-check-input" v-model="VL" type="checkbox" value="3" id="LanguageOne" v-on:click="addValue(3)">-->
-<!--                                    <label class="form-check-label font-weight-bold" for="LanguageOne">-->
-<!--                                      {{ $t('pages.home.vl') }}-->
-<!--                                    </label>-->
-<!--                                  </div>-->
-<!--                                  <div class="form-check mt-3">-->
-<!--                                    <input class="form-check-input" v-model="Cop" type="checkbox" value="4" id="CopyrightOne" v-on:click="addValue(4)">-->
-<!--                                    <label class="form-check-label font-weight-bold" for="CopyrightOne">-->
-<!--                                      {{ $t('pages.home.copyright') }}-->
-<!--                                    </label>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                              <div class="form-floating mt-3" v-if="otherShow">-->
-<!--                                <label for="floatingTextareaOene">{{ $t('pages.home.tell') }}...</label>-->
-<!--                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareaOene" v-model="reason"></textarea>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="modal-footer">-->
-<!--                              <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="flushValue">{{ $t('pages.home.close') }} <i class="fas fa-times-circle"></i></button>-->
-<!--                              <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="reportPost(items.uuid)">{{ $t('pages.home.send') }} <i class="fas fa-paper-plane"></i></button>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="card mb-3 bg-transparent p-2" v-else>-->
-<!--        <div class="row w-100 h-100">-->
-<!--          <div class="col-12 d-flex flex-row justify-content-center align-items-center">-->
-<!--            <img src="@/assets/images/undraw_No_data_re_kwbl.svg" alt="" class="w-75 h-50 rounded">-->
-<!--          </div>-->
-<!--          <h3 class="text-center font-weight-bolder">-->
-<!--            {{ $t('pages.profile.noPost') }}-->
-<!--          </h3>-->
-<!--        </div>-->
-<!--      </div>-->
+                            <b-button :id="`popover-target-${$index}`" class="border-0 bg-transparent m-0 p-0 mb-1">
+                              <i class="fas fa-share-alt share-design" style="font-size: small; padding-top: 1px;" ></i>
+                            </b-button>
+
+                            <b-popover :target="`popover-target-${$index}`" triggers="hover focus" placement="top">
+                              <ShareNetwork
+                                network="facebook"
+                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                                :title="items.title"
+                              >
+                                <i class="fab fa-facebook"></i>
+                              </ShareNetwork>
+                              <ShareNetwork
+                                network="email"
+                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                                :title="items.title"
+                              >
+                                <i class="fab fa-google"></i>
+                              </ShareNetwork>
+                              <ShareNetwork
+                                network="twitter"
+                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                                :title="items.title"
+                              >
+                                <i class="fab fa-twitter"></i>
+                              </ShareNetwork>
+                              <ShareNetwork
+                                network="whatsapp"
+                                :url="`https://odaaay.com/${$i18n.locale}/article/` + items.uuid"
+                                :title="items.title"
+                              >
+                                <i class="fab fa-whatsapp"></i>
+                              </ShareNetwork>
+                            </b-popover>
+<!--                            <i class="fas fa-upload"></i>-->
+                          </button>
+                        </li>
+                        <li class="list-group-item border-0">
+                          <button
+                            type="button"
+                            class="bg-transparent border-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#notInterestedOne"
+                          >
+                            <i class="fas fa-info-circle"  data-bs-toggle="tooltip" data-bs-placement="top" :title="$t('pages.home.reportPost')"></i>
+                          </button>
+                        </li>
+
+                        <li class="list-group-item border-0">
+                          <button class="bg-transparent border-0" v-on:click="notInterested($index, items.uuid)">
+                            <i class="fas fa-times" style="font-size: large;padding-top: 5px;"></i>
+                          </button>
+                        </li>
+                      </ul>
+                      <!-- Modal -->
+                      <div class="modal fade" id="notInterestedOne" tabindex="-1" aria-labelledby="notInterestedOne" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabelOne">{{ $t('pages.home.reportArticle') }}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="flushValue"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" v-model="FN" value="1" id="FakeOne" v-on:click="addValue(1)">
+                                    <label class="form-check-label font-weight-bold " for="FakeOne">
+                                      {{ $t('pages.home.fn') }}
+                                    </label>
+                                  </div>
+                                  <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" v-model="BT" value="2" id="TranslationOne" v-on:click="addValue(2)">
+                                    <label class="form-check-label font-weight-bold" for="TranslationOne">
+                                      {{ $t('pages.home.bt') }}
+                                    </label>
+                                  </div>
+                                  <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" value="5" v-model="O" v-on:click="addValue(5)" id="OthersOne" @change="otherShow = !otherShow">
+                                    <label class="form-check-label font-weight-bold" for="OthersOne">
+                                      {{ $t('pages.home.other') }}
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="form-check mt-3">
+                                    <input class="form-check-input" v-model="VL" type="checkbox" value="3" id="LanguageOne" v-on:click="addValue(3)">
+                                    <label class="form-check-label font-weight-bold" for="LanguageOne">
+                                      {{ $t('pages.home.vl') }}
+                                    </label>
+                                  </div>
+                                  <div class="form-check mt-3">
+                                    <input class="form-check-input" v-model="Cop" type="checkbox" value="4" id="CopyrightOne" v-on:click="addValue(4)">
+                                    <label class="form-check-label font-weight-bold" for="CopyrightOne">
+                                      {{ $t('pages.home.copyright') }}
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-floating mt-3" v-if="otherShow">
+                                <label for="floatingTextareaOene">{{ $t('pages.home.tell') }}...</label>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareaOene" v-model="reason"></textarea>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="flushValue">{{ $t('pages.home.close') }} <i class="fas fa-times-circle"></i></button>
+                              <button type="button" class="btn btn-light" data-bs-dismiss="modal" v-on:click="reportPost(items.uuid)">{{ $t('pages.home.send') }} <i class="fas fa-paper-plane"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="card mb-3 bg-transparent p-2" v-else>
+        <div class="row w-100 h-100">
+          <div class="col-12 d-flex flex-row justify-content-center align-items-center">
+            <img src="@/assets/images/undraw_No_data_re_kwbl.svg" alt="" class="w-75 h-50 rounded">
+          </div>
+          <h3 class="text-center font-weight-bolder">
+            {{ $t('pages.profile.noPost') }}
+          </h3>
+        </div>
+      </div>
       <client-only placeholder="loading..." v-if="!isThere">
         <infinite-loading @infinite="infiniteHandler"></infinite-loading>
       </client-only>
