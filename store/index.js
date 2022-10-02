@@ -32,7 +32,7 @@ export const state = () => ({
   Usettings: [],
   userData: null,
   whereAm: null,
-  userIP: "",
+  userIP: null,
   channels: [],
   feeds: [],
   ownerData: [],
