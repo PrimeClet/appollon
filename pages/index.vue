@@ -3,7 +3,7 @@
     <div class="row m-0 p-0 pt-3 pt-lg-5">
       <div class="col-lg-9 col-md-8 px-xl-4 px-md-3 px-3 mb-5 pb-5 scroller">
 <!--        <relaredPost :component_data="listPaid"></relaredPost>-->
-<!--        <articalPreview :category="catego"></articalPreview>-->
+        <articalPreview :category="catego"></articalPreview>
       </div>
       <div class="col-lg-3 col-md-4 post-sidebar mb-5 pb-5 pe-md-2 scroller" id="trend">
 <!--        <communities :component_data="discover_posts"></communities>-->
