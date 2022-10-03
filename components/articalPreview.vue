@@ -701,12 +701,12 @@
           </h3>
         </div>
       </div>
-      <client-only placeholder="loading..." v-show="!isThere">
-        <infinite-loading @infinite="infiniteHandler"></infinite-loading>
-      </client-only>
-      <client-only placeholder="loading..." v-show="isThere">
-        <infinite-loading @infinite="loadNewGroupData"></infinite-loading>
-      </client-only>
+<!--      <client-only placeholder="loading..." v-show="!isThere">-->
+<!--        <infinite-loading @infinite="infiniteHandler"></infinite-loading>-->
+<!--      </client-only>-->
+<!--      <client-only placeholder="loading..." v-show="isThere">-->
+<!--        <infinite-loading @infinite="loadNewGroupData"></infinite-loading>-->
+<!--      </client-only>-->
     </div>
   </div>
 </template>
