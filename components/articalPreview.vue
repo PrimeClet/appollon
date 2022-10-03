@@ -361,7 +361,7 @@
         </div>
         <!--        </div>-->
       </div>
-      <div class="row px-0 mt-2 mx-md-0 mx-lg-0 mt-md-4" v-for="(item, $index) in list" :key="item.id" v-if="!emptyBox" :class="$index">
+      <div class="row px-0 mt-2 mx-md-0 mx-lg-0 mt-md-4" v-for="(item, $index) in list" :key="item.id" v-show="!emptyBox">
         <div class="p-0" v-for="items in item.posts" :key="items.id">
             <div class="row px-0 mt-1 px-lg-1" v-if="!items.thumb_url">
               <div class="col-md-12 h-100">
@@ -691,7 +691,7 @@
             </div>
         </div>
       </div>
-      <div class="card mb-3 bg-transparent p-2" v-else>
+      <div class="card mb-3 bg-transparent p-2" v-show="emptyBox">
         <div class="row w-100 h-100">
           <div class="col-12 d-flex flex-row justify-content-center align-items-center">
             <img src="@/assets/images/undraw_No_data_re_kwbl.svg" alt="" class="w-75 h-50 rounded">
