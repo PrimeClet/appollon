@@ -361,7 +361,7 @@
         </div>
         <!--        </div>-->
       </div>
-      <div class="row px-0 mt-2 mx-md-0 mx-lg-0 mt-md-4" v-for="(item, $index) in list" :key="item.id" v-if="!emptyBox" :aria-current="$index">
+      <div class="row px-0 mt-2 mx-md-0 mx-lg-0 mt-md-4" v-for="(item, $index) in list" :key="item.id" v-if="!emptyBox" :class="$index">
         <div class="p-0" v-for="items in item.posts" :key="items.id">
             <div class="row px-0 mt-1 px-lg-1" v-if="!items.thumb_url">
               <div class="col-md-12 h-100">
