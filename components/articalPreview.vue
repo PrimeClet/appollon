@@ -27,10 +27,10 @@
         </slide>
       </carousel>
 
-      <div class="" id="newPost" v-if="article">
+      <div class="" id="newPost" v-show="article">
 <!--        <div class="row px-0 mt-2" v-for="(item, $index) in article" :key="item.id">-->
-          <div class="p-0" v-for="items in article.posts" :key="items.id" v-if="article.posts !== null">
-            <div class="row px-0 mt-1 px-lg-2 new-data" v-if="!items.thumb_url">
+          <div class="p-0" v-for="items in article.posts" :key="items.id" v-show="article.posts !== null">
+            <div class="row px-0 mt-1 px-lg-2 new-data" v-show="!items.thumb_url">
               <div class="col-md-12 h-100">
                 <div class="card-body p-1 position-relative">
                   <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank">
@@ -51,14 +51,14 @@
                     <ul
                       class="list-group list-group-horizontal float-end ms-auto mr-2"
                     >
-                      <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">
+                      <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-show="isItSave(items.id)">
                         <!--                          <button class="bg-transparent border-0">-->
                         <!--                            <i class="fas fa-heart"></i>-->
                         <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />
                         <!--                            <i slot="icon" class="fas fa-heart addColor1"></i>-->
                         <!--                          </button>-->
                       </li>
-                      <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>
+                      <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-show="!isItSave(items.id)">
                         <!--                          <button class="bg-transparent border-0">-->
                         <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />
                         <!--                          <vue-star animate="animated bounceIn" color="#F05654">-->
@@ -168,7 +168,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="form-floating mt-3" v-if="otherShow">
+                            <div class="form-floating mt-3" v-show="otherShow">
                               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareaa" v-model="reason"></textarea>
                               <label for="floatingTextareaa">{{ $t('pages.home.tell') }}...</label>
                             </div>
@@ -185,7 +185,7 @@
                 </div>
               </div>
             </div>
-            <div class="px-lg-1 new-data" v-else>
+            <div class="px-lg-1 new-data"  v-show="items.thumb_url">
               <div class="row mt-2 px-0 px-md-3" >
                 <div class="col-md-3 col-lg-2 col-2 px-0 pl-1 pl-md-0">
                   <div class="">
@@ -222,14 +222,14 @@
                       <ul
                         class="list-group list-group-horizontal float-end ms-auto"
                       >
-                        <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">
+                        <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-show="isItSave(items.id)">
                           <!--                          <button class="bg-transparent border-0">-->
                           <!--                            <i class="fas fa-heart"></i>-->
                           <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />
                           <!--                            <i slot="icon" class="fas fa-heart addColor1"></i>-->
                           <!--                          </button>-->
                         </li>
-                        <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>
+                        <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-show="!isItSave(items.id)">
                           <!--                          <button class="bg-transparent border-0">-->
                           <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />
                           <!--                          <vue-star animate="animated bounceIn" color="#F05654">-->
@@ -339,7 +339,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="form-floating mt-3" v-if="otherShow">
+                              <div class="form-floating mt-3" v-show="otherShow">
                                 <label for="floatingTextareaOnea">{{ $t('pages.home.tell') }}...</label>
                                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareaOnea" v-model="reason"></textarea>
                               </div>
@@ -357,13 +357,13 @@
               </div>
             </div>
           </div>
-          <div class="px-lg-1 new-data" v-else>
+          <div class="px-lg-1 new-data" v-show="article.posts === null">
         </div>
         <!--        </div>-->
       </div>
       <div class="row px-0 mt-2 mx-md-0 mx-lg-0 mt-md-4" v-for="(item, $index) in list" :key="item.id" v-show="!emptyBox">
         <div class="p-0" v-for="items in item.posts" :key="items.id">
-            <div class="row px-0 mt-1 px-lg-1" v-if="!items.thumb_url">
+            <div class="row px-0 mt-1 px-lg-1" v-show="!items.thumb_url">
               <div class="col-md-12 h-100">
                 <div class="card-body p-1 position-relative">
                   <nuxt-link :to="`/${$i18n.locale}/article/` + items.uuid" target="_blank">
@@ -384,14 +384,14 @@
                     <ul
                       class="list-group list-group-horizontal float-end ms-auto mr-2"
                     >
-                      <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">
+                      <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-show="isItSave(items.id)">
                         <!--                          <button class="bg-transparent border-0">-->
                         <!--                            <i class="fas fa-heart"></i>-->
                         <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />
                         <!--                            <i slot="icon" class="fas fa-heart addColor1"></i>-->
                         <!--                          </button>-->
                       </li>
-                      <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>
+                      <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-show="!isItSave(items.id)">
                         <!--                          <button class="bg-transparent border-0">-->
                         <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />
                         <!--                          <vue-star animate="animated bounceIn" color="#F05654">-->
@@ -501,7 +501,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="form-floating mt-3" v-if="otherShow">
+                            <div class="form-floating mt-3" v-show="otherShow">
                               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareae" v-model="reason"></textarea>
                               <label for="floatingTextareae">{{ $t('pages.home.tell') }}...</label>
                             </div>
@@ -518,7 +518,7 @@
                 </div>
               </div>
             </div>
-            <div class="card bg-primary px-lg-4" v-else>
+            <div class="card bg-primary px-lg-4" v-show="items.thumb_url">
               <div class="row px-md-0 mt-4 px-1" >
                 <div class="col-md-3 col-lg-2 col-2 px-0 pl-1 pl-md-0">
                   <div class="">
@@ -555,14 +555,14 @@
                       <ul
                         class="list-group list-group-horizontal float-end ms-auto"
                       >
-                        <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-if="isItSave(items.id)">
+                        <li class="list-group-item border-0" v-on:click="colorNotChange(items.id, $event)" v-show="isItSave(items.id)">
 <!--                          <button class="bg-transparent border-0">-->
 <!--                            <i class="fas fa-heart"></i>-->
                           <vue-clap-button :max-click="1" colorNormal="#F05654FF" color-active="#008080" icon="love" :size="30" class="" />
 <!--                            <i slot="icon" class="fas fa-heart addColor1"></i>-->
 <!--                          </button>-->
                         </li>
-                        <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-else>
+                        <li class="list-group-item border-0" v-on:click="colorChange(items.uuid, $event, items.id)" v-show="!isItSave(items.id)">
 <!--                          <button class="bg-transparent border-0">-->
                             <vue-clap-button :max-click="1" colorNormal="#008080" color-active="#F05654FF" icon="love" :size="30" class="" />
 <!--                          <vue-star animate="animated bounceIn" color="#F05654">-->
@@ -672,7 +672,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="form-floating mt-3" v-if="otherShow">
+                              <div class="form-floating mt-3" v-show="otherShow">
                                 <label for="floatingTextareaOene">{{ $t('pages.home.tell') }}...</label>
                                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextareaOene" v-model="reason"></textarea>
                               </div>
@@ -701,10 +701,10 @@
           </h3>
         </div>
       </div>
-      <client-only placeholder="loading..." v-if="!isThere">
+      <client-only placeholder="loading..." v-show="!isThere">
         <infinite-loading @infinite="infiniteHandler"></infinite-loading>
       </client-only>
-      <client-only placeholder="loading..." v-else>
+      <client-only placeholder="loading..." v-show="isThere">
         <infinite-loading @infinite="loadNewGroupData"></infinite-loading>
       </client-only>
     </div>
