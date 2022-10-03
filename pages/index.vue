@@ -6,7 +6,7 @@
 <!--        <articalPreview :category="catego"></articalPreview>-->
       </div>
       <div class="col-lg-3 col-md-4 post-sidebar mb-5 pb-5 pe-md-2 scroller" id="trend">
-        <communities :component_data="discover_posts"></communities>
+<!--        <communities :component_data="discover_posts"></communities>-->
       </div>
     </div>
   </div>
