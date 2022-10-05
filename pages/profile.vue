@@ -188,7 +188,7 @@ export default {
   //     return { ipadd: ip }
   //   }
   // },
-
+  //
   // async fetch() {
   //   await this.getDiscover()
   // },

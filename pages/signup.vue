@@ -228,13 +228,13 @@ import animationData from '@/assets/anims/signup.json'
 import Lottie from 'vue-lottie/src/lottie.vue'
 
 export default {
-  // asyncData({req, store}) {
-  //   if (process.server) {
-  //     const ip = req.headers['x-forwarded-for']
-  //     store.commit('PUT_USERIP', ip)
-  //     return { ipadd: ip }
-  //   }
-  // },
+  asyncData({req, store}) {
+    if (process.server) {
+      const ip = req.headers['x-forwarded-for']
+      store.commit('PUT_USERIP', ip)
+      return { ipadd: ip }
+    }
+  },
   layout: "forms",
   components: {
     VueTelInput,

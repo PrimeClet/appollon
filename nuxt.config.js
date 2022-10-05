@@ -8,9 +8,9 @@ export default {
   //   middleware: 'colorMode'
   // },
   //
-  // generate: {
-  //   fallback: true
-  // },
+  generate: {
+    fallback: true
+  },
 
   head: {
     title: 'Odaaay',

@@ -785,18 +785,18 @@ export default {
       }
       // const items = this.randomArray.filter(item => item.name.toUpperCase().indexOf(this.searchKeyWord.toUpperCase()) !== -1);
     },
-    // getWeatherCity(ip) {
-    //   this.$axios
-    //     .post('/user/ip_addressdata', {
-    //       address: ip
-    //     })
-    //     .then((res) => {
-    //       this.getWeather(res.data.res.city)
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-    // },
+    getWeatherCity(ip) {
+      this.$axios
+        .post('/user/ip_addressdata', {
+          address: ip
+        })
+        .then((res) => {
+          this.getWeather(res.data.res.city)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
     changeStatus(id, user, uuid, index) {
       this.$axios
         .post('/post/receive/notification', {
@@ -1113,7 +1113,7 @@ export default {
     //this.pic = localStorage.getItem('profile_picture')
     // }
 
-    // this.getWeatherCity(this.$store.state.userIP)
+    this.getWeatherCity(this.$store.state.userIP)
     this.mediascreen = window.matchMedia("(max-width: 700px)");
   },
   watch: {

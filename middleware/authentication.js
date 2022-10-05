@@ -1,6 +1,6 @@
 export default ({redirect, i18n, app, store, route}) => {
   const pathNameTwo = '/' + i18n.locale + '/profile'
-  if (! app.$cookies.get('token') ) {
+  if (! app.$cookies.get('token')) {
     if(route.path === pathNameTwo && route.query.username)
       return redirect('/' + i18n.locale + '/profile?username='+route.query.username)
     return redirect('/' + i18n.locale + '/login')
