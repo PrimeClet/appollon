@@ -189,9 +189,9 @@ export default {
   //   }
   // },
 
-  async fetch() {
-    await this.getDiscover()
-  },
+  // async fetch() {
+  //   await this.getDiscover()
+  // },
 
   components: {
     ProfileSetting,
