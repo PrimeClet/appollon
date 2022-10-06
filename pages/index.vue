@@ -26,11 +26,11 @@ export default {
   //     return { ipadd: ip }
   //   }
   // },
-  async fetch() {
-    await this.getDiscover()
-    await this.getUserSettings()
-    await this.getAllDataPaid(this.catego)
-  },
+  // async fetch() {
+  //   await this.getDiscover()
+  //   await this.getUserSettings()
+  //   await this.getAllDataPaid(this.catego)
+  // },
   components: {
     relaredPost,
     communities,
