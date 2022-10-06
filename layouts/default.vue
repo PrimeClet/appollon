@@ -684,9 +684,9 @@ import VClamp from 'vue-clamp';
 
 
 export default {
-  async fetch() {
-    await this.getUserSettings()
-  },
+  // async fetch() {
+  //   await this.getUserSettings()
+  // },
   components: {
     truncate,
     VClamp

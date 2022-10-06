@@ -179,7 +179,7 @@ import OtherPosts from "@/components/otherPosts"
 import ProfileSetting from "@/components/profileSetting"
 
 export default {
-  // middleware: 'authentication',
+  middleware: 'authentication',
 
   // asyncData({req, store}) {
   //   if (process.server) {
