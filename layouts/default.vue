@@ -684,9 +684,9 @@ import VClamp from 'vue-clamp';
 
 
 export default {
-  // async fetch() {
-  //   await this.getUserSettings()
-  // },
+  async fetch() {
+    await this.getUserSettings()
+  },
   components: {
     truncate,
     VClamp
@@ -1113,7 +1113,7 @@ export default {
     //this.pic = localStorage.getItem('profile_picture')
     // }
 
-    this.getWeatherCity(this.$store.state.userIP)
+    // this.getWeatherCity(this.$store.state.userIP)
     this.mediascreen = window.matchMedia("(max-width: 700px)");
   },
   watch: {
