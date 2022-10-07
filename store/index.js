@@ -251,13 +251,13 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({ dispatch }) {
     // console.log(this.$cookies.get('token'))
-    if (this.$cookies.get('token')) {
-      await dispatch('getUserSettings')
-      // this.$cookies.set('adleehuezvuigvzef', res.data.user.picture, {
-      //   sameSite: true,
-      //   secure: true
-      // })
-    }
+    // if (this.$cookies.get('token')) {
+    //   await dispatch('getUserSettings')
+    //   // this.$cookies.set('adleehuezvuigvzef', res.data.user.picture, {
+    //   //   sameSite: true,
+    //   //   secure: true
+    //   // })
+    // }
   },
   Deconnexion (context) {
     context.commit('DELETE_TOKEN')
