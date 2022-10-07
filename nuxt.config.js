@@ -142,7 +142,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // Simple usage
-    ['cookie-universal-nuxt',  {alias: 'cookiz' }],
+    'cookie-universal-nuxt',
     // https://go.nuxtjs.dev/sitemap
     '@nuxtjs/sitemap',
     // https://go.nuxtjs.dev/robots
